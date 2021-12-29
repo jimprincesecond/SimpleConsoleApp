@@ -9,7 +9,7 @@ trigger:
 
 # top level is the Stage - contains jobs
 stages:
-- stage A:
+- stage: A
   pool:
   name: Default
  
@@ -47,7 +47,7 @@ stages:
   - job: A2
   steps:
   - bash: echo "step A2"
-- stage B:
+- stage: B
   pool:
   name: Default
   jobs:
