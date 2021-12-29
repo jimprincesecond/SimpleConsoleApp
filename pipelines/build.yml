@@ -53,5 +53,5 @@ stages:
   jobs:
   - job: B1
     steps:
-    - bash: echo "step B1"
+    - bash: echo "step   B1"
 
