@@ -22,7 +22,7 @@ stages:
   jobs:
 # jobs contain steps
   - job: A1
-    displayName A1Build
+    displayName: A1Build
     steps:
 # steps can be tasks
     - script: echo step A1 step1
