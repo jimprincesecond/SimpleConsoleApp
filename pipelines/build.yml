@@ -45,8 +45,8 @@ stages:
         configuration: '$(buildConfiguration)'
 
   - job: A2
-  steps:
-  - bash: echo "step A2"
+    steps:
+    - bash: echo "step A2"
 - stage: B
   pool:
     name: Default
