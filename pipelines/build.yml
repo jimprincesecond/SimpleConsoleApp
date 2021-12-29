@@ -11,7 +11,7 @@ trigger:
 stages:
 - stage: A
   pool:
-  name: Default
+    name: Default
  
 # define some variables for use later on
   variables:
@@ -49,7 +49,7 @@ stages:
   - bash: echo "step A2"
 - stage: B
   pool:
-  name: Default
+    name: Default
   jobs:
   - job: B1
     steps:
