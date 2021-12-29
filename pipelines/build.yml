@@ -25,8 +25,7 @@ stages:
     displayName A1Build
     steps:
 # steps can be tasks
-    - bash: |
-        echo "step A1 step1"
+    - script: echo step A1 step1
 
     - task: NuGetToolInstaller@1
 
@@ -48,15 +47,12 @@ stages:
 
   - job: A2
     steps:
-    - bash: |
-        echo "step A2"
+    - script: echo step A2
 - stage: B
   pool:
     name: Default
   jobs:
   - job: B1
     steps:
-    - task: CmdLine
-    - bash: |
-        echo "step   B1"
+    - script: echo step   B1
 
