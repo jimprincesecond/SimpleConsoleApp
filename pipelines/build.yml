@@ -50,7 +50,7 @@ stages:
     - task: DotNetCoreCLI@2
       displayName: Build
       inputs:
-        projects: 'src/**/*.csproj'
+        projects: '**/*.csproj'
         arguments: ' /p:custom_build_environment=azure'
         noCache: true
 
