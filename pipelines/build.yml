@@ -39,7 +39,7 @@ stages:
         includePreviewVersions: true
 
     - task: NuGetAuthenticate@0
-      displayName NuGet Authenticate
+      displayName: NuGet Authenticate
       inputs:
         nuGetServiceConnections: $(nuget-service-connection)
         forceReinstallCredentialProvider: true
