@@ -89,7 +89,7 @@ stages:
       displayName: 'Publish code coverage results'
       inputs:
         codeCoverageTool: 'Cobertura'
-        summaryFileLocation: '$(Agent.TempDirectory)/*coverage.cobertura.xml' 
+        summaryFileLocation: '*coverage.cobertura.xml' 
 
 - stage: B
   pool:
