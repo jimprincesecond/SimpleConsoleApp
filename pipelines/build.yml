@@ -54,6 +54,32 @@ stages:
         arguments: ' /p:custom_build_environment=azure'
         noCache: true
 
+- stage: Unit_Tests
+  displayName: Unit Tests
+  jobs:
+  - job: test
+    displayName: Unit Tests
+    steps:
+
+#    - task: NuGetAuthenticate@0
+#      inputs:
+#        nuGetServiceConnections: $(nuget-service-connection)
+          
+    - task: DotNetCoreCLI@2
+      displayName: Unit Tests
+      inputs:
+        command: test
+        projects: 'tests/**/*.Tests.csproj'
+        publishTestResults: true
+        arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:custom_build_environment=azure'
+        noCache: true
+          
+    - task: PublishCodeCoverageResults@1
+      displayName: 'Publish code coverage results'
+      inputs:
+        codeCoverageTool: 'Cobertura'
+        summaryFileLocation: '**/*coverage.cobertura.xml' 
+
   - job: A2
     steps:
     - script: echo step A2
