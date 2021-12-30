@@ -82,15 +82,17 @@ stages:
         command: test
         projects: '**/*.Tests.csproj'
         publishTestResults: true
-        arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:custom_build_environment=azure'
+        arguments: '--configuration $(buildConfiguration) --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura'
+        #arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:custom_build_environment=azure'
         noCache: true
           
     - task: PublishCodeCoverageResults@1
       displayName: 'Publish code coverage results'
       inputs:
         codeCoverageTool: 'Cobertura'
-        summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.cobertura.xml' 
+        #summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.cobertura.xml' 
         #summaryFileLocation: '$(Agent.TempDirectory)/**/*coverage.cobertura.xml' 
+        summaryFileLocation: '**/*coverage.cobertura.xml' 
 
 - stage: B
   pool:
