@@ -10,6 +10,7 @@ trigger:
 # top level is the Stage - contains jobs
 stages:
 - stage: Build
+  displayName: Build C# project
   pool:
     name: Default
  
@@ -58,7 +59,7 @@ stages:
   displayName: Unit Tests
   pool:
     name: Default
-    
+
   jobs:
   - job: test
     displayName: Unit Tests
@@ -72,7 +73,7 @@ stages:
       displayName: Unit Tests
       inputs:
         command: test
-        projects: 'tests/**/*.Tests.csproj'
+        projects: '**/*.Tests.csproj'
         publishTestResults: true
         arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:custom_build_environment=azure'
         noCache: true
