@@ -4,8 +4,11 @@
 # https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
 # vmImage: 'windows-latest'
 
+# this triggers on any checking to any branch
 trigger:
-- main
+  branches:
+    include:
+      - '*'
 
 # top level is the Stage - contains jobs
 stages:
