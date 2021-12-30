@@ -80,9 +80,6 @@ stages:
         codeCoverageTool: 'Cobertura'
         summaryFileLocation: '**/*coverage.cobertura.xml' 
 
-  - job: A2
-    steps:
-    - script: echo step A2
 - stage: B
   pool:
     name: Default
