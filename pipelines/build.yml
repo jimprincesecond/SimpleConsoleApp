@@ -71,11 +71,11 @@ stages:
         packageType: 'sdk'
         version: '5.0.x'
         includePreviewVersions: true
-
-#    - task: NuGetAuthenticate@0
-#      inputs:
-#        nuGetServiceConnections: $(nuget-service-connection)
           
+    - task: NuGetCommand@2
+      inputs:
+        restoreSolution: '$(solution)'
+
     - task: DotNetCoreCLI@2
       displayName: Unit Tests
       inputs:
@@ -89,7 +89,8 @@ stages:
       displayName: 'Publish code coverage results'
       inputs:
         codeCoverageTool: 'Cobertura'
-        summaryFileLocation: '$(Agent.TempDirectory)/**/*coverage.cobertura.xml' 
+        summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.cobertura.xml' 
+        #summaryFileLocation: '$(Agent.TempDirectory)/**/*coverage.cobertura.xml' 
 
 - stage: B
   pool:
