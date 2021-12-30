@@ -91,8 +91,8 @@ stages:
       inputs:
         codeCoverageTool: 'Cobertura'
         #summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.cobertura.xml' 
-        #summaryFileLocation: '$(Agent.TempDirectory)/**/*coverage.cobertura.xml' 
-        summaryFileLocation: '**/*coverage.cobertura.xml' 
+        summaryFileLocation: '$(Agent.TempDirectory)/**/*overage.cobertura.xml' 
+        #summaryFileLocation: '**/*coverage.cobertura.xml' 
 
 - stage: B
   pool:
