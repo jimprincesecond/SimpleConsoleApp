@@ -18,8 +18,8 @@ stages:
     name: Default
 
     jobs:
-    - job: echo env
-      displayName: echo environment
+    - job: echo_env
+      displayName: 'echo environment'
       steps:
       - task: PowerShell@1
         inputs:
