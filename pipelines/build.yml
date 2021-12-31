@@ -12,6 +12,20 @@ trigger:
 
 # top level is the Stage - contains jobs
 stages:
+- stage: Show Env
+  displayName: Show the build environment
+  pool:
+    name: Default
+
+    jobs:
+    - job: echo env
+      displayName: echo environment
+      steps:
+      -task: PowerShell@1
+        inputs:
+        - scriptType: "inlineScript"
+        inlineScript: "get-childitem -env path:* "
+
 - stage: Build
   displayName: Build C# project
   pool:
