@@ -12,23 +12,25 @@ trigger:
 
 # top level is the Stage - contains jobs
 stages:
-- stage: Show_Env
-  displayName: Show the build environment
-  pool:
-    name: Default
+#- stage: ShowEnv
+#  displayName: Show the build environment
+#  pool:
+#    name: Default
 
-    jobs:
-    - job: dummyt
-      steps:
-      - script: echo step   dummy output
-      
-    - job: echo_env
-      displayName: 'echo environment'
-      steps:
-      - task: PowerShell@1
-        inputs:
-          scriptType: "inlineScript"
-          inlineScript: "get-childitem -path env:* "
+#    jobs:
+#    - job: dummy
+#      displayName: dummy
+#      steps:
+#      - script: echo dummy output
+
+#    - job: echoenv
+#      displayName: 'echo environment'
+#      steps:
+#      - task: PowerShell@1
+#        displayName: powershell
+#        inputs:
+#          scriptType: "inlineScript"
+#          inlineScript: "get-childitem -path env:* "
 
 - stage: Build
   displayName: Build C# project
@@ -63,6 +65,12 @@ stages:
         includePreviewVersions: true
 
     - task: NuGetToolInstaller@1
+
+    - task: PowerShell@1
+      displayName: powershell
+      inputs:
+        scriptType: "inlineScript"
+        inlineScript: "get-childitem -path env:* "
 
 #   download the Nuget packages that our project needs
     - task: NuGetCommand@2
