@@ -18,6 +18,10 @@ stages:
     name: Default
 
     jobs:
+    - job: dummyt
+      steps:
+      - script: echo step   dummy output
+      
     - job: echo_env
       displayName: 'echo environment'
       steps:
