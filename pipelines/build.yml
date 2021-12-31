@@ -12,7 +12,7 @@ trigger:
 
 # top level is the Stage - contains jobs
 stages:
-- stage: Show Env
+- stage: Show_Env
   displayName: Show the build environment
   pool:
     name: Default
