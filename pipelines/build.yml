@@ -21,10 +21,10 @@ stages:
     - job: echo env
       displayName: echo environment
       steps:
-      -task: PowerShell@1
+      - task: PowerShell@1
         inputs:
-        - scriptType: "inlineScript"
-        inlineScript: "get-childitem -env path:* "
+          scriptType: "inlineScript"
+          inlineScript: "get-childitem -path env:* "
 
 - stage: Build
   displayName: Build C# project
