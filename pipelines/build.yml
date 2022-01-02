@@ -15,6 +15,10 @@ resources:
     - repository: self
       type: git
 
+# Add some template variables, just for dte.
+#variables:
+#  - template: ./variables/dte/pps-service.yml
+
 # this is the default pool that all the stages will use.
 pool:
   name: Default
