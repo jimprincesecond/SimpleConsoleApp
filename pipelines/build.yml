@@ -48,6 +48,7 @@ stages:
 # jobs contain steps
   - job: Build
     displayName: Build
+    timeoutInMinutes: 10
     steps:
 # steps can be tasks, scripts, etc
     - script: echo Build step 1
