@@ -10,6 +10,15 @@ trigger:
     include:
       - '*'
 
+resources:
+  repositories:
+    - repository: self
+      type: git
+
+# this is the default pool that all the stages will use.
+pool:
+  name: Default
+
 # top level is the Stage - contains jobs
 stages:
 #- stage: ShowEnv
